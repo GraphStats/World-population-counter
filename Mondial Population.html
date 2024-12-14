@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.8/themes/odometer-theme-default.min.css">
+  <style>
+    body {
+      font-family: Roboto, sans-serif;
+      text-align: center;
+      background-color: #000;
+      padding: 50px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    .odometer {
+      font-size: 17em;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div id="population" class="odometer">8193885650</div>
+
+  <!-- Inclure le JS d'Odometer -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.8/odometer.min.js"></script>
+  <script>
+    // Population mondiale initiale
+    let population = 8193885650;
+
+    // Croissance de la population par seconde (estimée à 2.4 par seconde)
+    const growthPerSecond = 2.4;
+
+    // Fonction pour mettre à jour la population
+    function updatePopulation() {
+      population += growthPerSecond * 2; // Actualisation toutes les 2 secondes
+      document.getElementById('population').innerText = Math.floor(population);
+    }
+
+    // Mettre à jour la population toutes les 2 secondes
+    setInterval(updatePopulation, 2000);
+  </script>
+</body>
+</html>
